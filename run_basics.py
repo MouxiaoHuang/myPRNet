@@ -14,8 +14,10 @@ prn = PRN(is_dlib = False)
 
 
 # ------------- load data
-image_folder = 'TestImages/AFLW2000/'
-save_folder = 'TestImages/AFLW2000_results'
+#image_folder = 'TestImages/AFLW2000/'
+#save_folder = 'TestImages/AFLW2000_results'
+image_folder = 'TestImages/singleTest'
+save_folder = 'TestImages/singleTest_results'
 if not os.path.exists(save_folder):
     os.mkdir(save_folder)
 
@@ -30,7 +32,8 @@ for i, image_path in enumerate(image_path_list):
     image = imread(image_path)
 
     # the core: regress position map    
-    if 'AFLW2000' in image_path:
+    #if 'AFLW2000' in image_path:
+    if 'singleTest' in image_path:
         mat_path = image_path.replace('jpg', 'mat')
         info = sio.loadmat(mat_path)
         kpt = info['pt3d_68']
@@ -47,7 +50,9 @@ for i, image_path in enumerate(image_path_list):
     colors = prn.get_colors(image, vertices)
 
     # -- save
-    name = image_path.strip().split('/')[-1][:-4]
+#    name = image_path.strip().split('/')[-1][:-4]
+    name = image_path.strip().split('\\')[-1][:-4]      # On windows
+
     np.savetxt(os.path.join(save_folder, name + '.txt'), kpt) 
     write_obj_with_colors(os.path.join(save_folder, name + '.obj'), vertices, prn.triangles, colors) #save 3d face(can open with meshlab)
 

@@ -1,0 +1,2 @@
+model_checkpoint_path: "256_256_resfcn256_weight"
+all_model_checkpoint_paths: "256_256_resfcn256_weight"

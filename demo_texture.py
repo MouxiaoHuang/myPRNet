@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
     parser.add_argument('-i', '--image_path', default='TestImages/AFLW2000/image00081.jpg', type=str,
                         help='path to input image')
-    parser.add_argument('-r', '--ref_path', default='TestImages/trump.jpg', type=str, 
+    parser.add_argument('-r', '--ref_path', default='TestImages/me.jpg', type=str, 
                         help='path to reference image(texture ref)')
     parser.add_argument('-o', '--output_path', default='TestImages/output.jpg', type=str, 
                         help='path to save output')
