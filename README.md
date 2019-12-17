@@ -33,7 +33,7 @@
 
 ### 3. Training steps
 
-- Generate training data (which are about 80 g)
+- Generate training data (size: about 80 GB)
 
 1. see [jnulzl/PRNet](https://github.com/jnulzl/PRNet) 
 2. run *9_generate_prnet_trainset_300WLP.py*
