@@ -41,15 +41,17 @@ class TrainData(object):
 			label = np.load(label_name)
 			
 			img_array = np.array(img,dtype=np.float32)
-			imgs.append(img_array/255.0)
+			#imgs.append(img_array/255.0)
+			imgs.append(img_array/255.0/1.1)#test
 
 			label_array = np.array(label,dtype=np.float32)
 			#labels.append(label_array/255.0)
-			labels.append((label_array)/(255.0*1.1))				# optimize it, no reason	
+			#labels.append((label_array)/(255.0*1.1))				# optimize it, no reason	因为除以255有点偏移，所以归一化的数值稍加改进（虽然理论不是如此）
 			#labels_array_norm = (label_array-label_array.min())/(label_array.max()-label_array.min())
 			#labels.append(labels_array_norm)
             #labels_array_norm = (label_array)/(255.0*1.1)
             #labels.append(labels_array_norm)
+			labels.append(label_array/255.0/1.1)#test
 
 		batch.append(imgs)
 		batch.append(labels)
@@ -176,19 +178,19 @@ def main(args):
 		if (epoch!=0) and (epoch%5==0):								# Decays half after each 5 epochs
 			learning_rate = learning_rate / 2
 		
-		if learning_rate <= 0.000001:
-			break
-		if loss_res <0.00002:
-			break
+		#if learning_rate <= 0.000001:
+		#	break
+		#if loss_res <0.00002:
+		#	break
 
 
 if __name__ == '__main__':
 
 	par = argparse.ArgumentParser(description='Training code of PRNet based on tensorflow')
 
-	par.add_argument('--train_data_file',default='Data/trainData/trainDataLabel.txt',type=str,help='The txt-file which contains the paths of trainData')
+	par.add_argument('--train_data_file',default='Data/trainData/trainDataLabel_all.txt',type=str,help='The txt-file which contains the paths of trainData')
 	par.add_argument('--learning_rate',default=0.0001,type=float,help='The learning rate')
-	par.add_argument('--epochs',default=50,type=int,help='Total epochs')
+	par.add_argument('--epochs',default=1,type=int,help='Total epochs')
 	par.add_argument('--batch_size',default=16,type=int,help='Batch sizes')
 	par.add_argument('--checkpoint',default='checkpoint/',type=str,help='The path of checkpoint')
 	par.add_argument('--model_path',default='checkpoint/256_256_resfcn256_weight',type=str,help='The path of pretrained model')
