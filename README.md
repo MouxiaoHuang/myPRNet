@@ -1,8 +1,6 @@
-## This is a personal implementation of PRNet 
+### Simple implementation of PRNet (tf version)
 
-*keep updating*
-
-- *Notice:* This project is based on ***tensorflow***. And ***pytorch version*** would be implemented and uploaded if possible.
+- *Notice:* This project is based on ***tensorflow***. And ***pytorch version*** is ***[here](https://github.com/MouxiaoHuang/myPRNet-PyTorch)***.
 
 ---
 
@@ -46,3 +44,11 @@
 
 - you would obtain your own PRNet-model in the file *checkpoint* 
 - test your model to see its performance (see the ***Usage*** part of [YadiraF/PRNet](https://github.com/YadiraF/PRNet))
+
+---
+
+Thanks for these contributers and their excellent works:
+
+- [YadiraF/PRNet](https://github.com/YadiraF/PRNet)
+- [YadiraF/face3d](https://github.com/YadiraF/face3d)
+- [jnulzl/PRNet-Train](https://github.com/jnulzl/PRNet-Train)
